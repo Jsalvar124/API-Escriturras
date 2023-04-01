@@ -23,9 +23,9 @@ let quotesController = {
     random: async (req, res) => {
         try {
 
-            const quotes = await db.Quote.findAll();
+            const quotes = await db.Quote.count();
 
-            const randomId = Math.floor(Math.random() * quotes.length) + 1;
+            const randomId = Math.floor(Math.random() * quotes) + 1;
 
             const randomQuote = await db.Quote.findByPk(randomId, { include: { all: true } })
 
